@@ -2,6 +2,17 @@
 <p>Howdy.</p>
 <ul>
 <% @posts_with_videos.each do |post| %>
-	<li><%= post["from"]["name"] %> said "<%= post["message"] %>" <%= time_ago_in_words(post["created_time"]) %> ago.</li>
+	<li>
+		<ul>
+			<li>Profile pic goes here (try this one last -- it's harder)</li>
+			<li><%= post["from"]["name"] %> said "<%= post["message"] %>" <%= time_ago_in_words(post["created_time"]) %> ago.</li>
+			<li>Link goes here</li>
+			<li>
+				<ul>
+					<li>First comment</li>
+					<li>Second comment</li>
+				</ul>
+			</li>
+		</ul>
 <% end %>
 </ul>
