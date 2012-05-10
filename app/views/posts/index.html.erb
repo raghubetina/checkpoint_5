@@ -6,13 +6,17 @@
 		<ul>
 			<li><%= image_tag profile_pic_url(post["from"]["id"]) %></li>
 			<li><%= post["from"]["name"] %> said "<%= post["message"] %>" <%= time_ago_in_words(post["created_time"]) %> ago.</li>
-			<li>Link goes here</li>
-			<li>
-				<ul>
-					<li>First comment</li>
-					<li>Second comment</li>
-				</ul>
-			</li>
+			<li><%= video_embed_tag(post["link"]).html_safe %></li>
+			<% unless post["comments"]["count"] == 0 %>
+				<li>
+					<ul>
+						<% post["comments"]["data"].each do |comment| %>
+							<li><%= image_tag profile_pic_url(comment["from"]["id"]) %></li>
+							<li><%= comment["from"]["name"] %> said "<%= comment["message"] %>" <%= time_ago_in_words(post["created_time"]) %> ago.</li>
+						<% end %>
+					</ul>
+				</li>
+			<% end %>
 		</ul>
 <% end %>
 </ul>
