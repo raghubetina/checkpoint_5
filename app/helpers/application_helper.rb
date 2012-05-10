@@ -8,16 +8,7 @@ module ApplicationHelper
     
     if domain.include?("youtube")
       
-      query_string = link.split("?").last
-      if query_string
-        parameters = query_string.split("&")
-        if parameters
-          id_param = parameters.select { |parameter| parameter[0..1] == "v=" }.first
-          if id_param
-            id = id_param.split("=").last
-          end
-        end
-      end
+      link.split("v=")[1].split("&")[0]
       
       return "<iframe width='853' 
                       height='505' 
