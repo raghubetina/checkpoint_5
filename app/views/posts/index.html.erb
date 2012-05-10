@@ -4,7 +4,7 @@
 <% @posts_with_videos.each do |post| %>
 	<li>
 		<ul>
-			<li>Profile pic goes here (try this one last -- it's harder)</li>
+			<li><%= image_tag profile_pic_url(post["from"]["id"]) %></li>
 			<li><%= post["from"]["name"] %> said "<%= post["message"] %>" <%= time_ago_in_words(post["created_time"]) %> ago.</li>
 			<li>Link goes here</li>
 			<li>
