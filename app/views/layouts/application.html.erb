@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CP1</title>
+  <title>FriendBC</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
+	<div class="top_bar">
+		<%= image_tag 'logo.png' %>
+	</div>
 
 <%= yield %>
 

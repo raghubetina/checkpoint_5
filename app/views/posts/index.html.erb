@@ -1,22 +1,39 @@
-<%= image_tag 'logo.png' %>
-<p>Howdy.</p>
-<ul>
+<div class="content">
 <% @posts_with_videos.each do |post| %>
-	<li>
-		<ul>
-			<li><%= image_tag profile_pic_url(post["from"]["id"]) %></li>
-			<li><%= post["from"]["name"] %> said "<%= post["message"] %>" <%= time_ago_in_words(post["created_time"]) %> ago.</li>
-			<li><%= video_embed_tag(post["link"]).html_safe %></li>
+<div class="post">
+	<div class="video">
+		<%= video_embed_tag(post["link"]).html_safe %>
+	</div>
+	<div class="friends">
+		<table>
+			
+			<tr>
+				<td class="profile_pic"><%= image_tag profile_pic_url(post["from"]["id"]) %></td>
+				<td class="poster">
+					<span class="name"><%= post["from"]["name"] %></span>
+					<span class="message"><%= post["message"] %></span>
+					<br/>
+					<span class="time"><%= time_ago_in_words(post["created_time"]) %> ago</span>
+				</td>
+			</tr>
+			
 			<% unless post["comments"]["count"] == 0 %>
-				<li>
-					<ul>
-						<% post["comments"]["data"].each do |comment| %>
-							<li><%= image_tag profile_pic_url(comment["from"]["id"]) %></li>
-							<li><%= comment["from"]["name"] %> said "<%= comment["message"] %>" <%= time_ago_in_words(post["created_time"]) %> ago.</li>
-						<% end %>
-					</ul>
-				</li>
+				<% post["comments"]["data"].each do |comment| %>
+					<tr>
+						<td class="profile_pic"><%= image_tag profile_pic_url(comment["from"]["id"]) %></td>
+						<td class="commenter">
+							<span class="name"><%= comment["from"]["name"] %></span>
+							<span class="message"><%= comment["message"] %></span>
+							<br/>
+							<span class="time"><%= time_ago_in_words(comment["created_time"]) %> ago</span>
+						</td>
+					</tr>
+				<% end %>
 			<% end %>
-		</ul>
-<% end %>
-</ul>
+			
+		</table>
+	</div>
+</div>
+
+<% end  %>
+</div>

@@ -13,6 +13,78 @@
 */
 
 body {
-	background-color: black;
+	background-color: #000000;
 	color: white;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 300;
+}
+
+a {
+	color: #CC6633;
+	text-decoration: none;
+}
+
+.top_bar {
+	background-color: #151515;
+	padding: 10px;
+	border-bottom: 2px solid #CC6633;
+}
+
+.content {
+	width: 1280px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.post {
+	position: relative;
+	width: 1200px;
+	height: 505px;
+	margin: 20px;
+	border-bottom: 2px solid #CC6633;
+}
+.video {
+	position: absolute;
+	width: 853px;
+	height: 505px;
+	top: 0;
+	left: 0;
+}
+
+.friends {
+	width: 347px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	overflow-y: scroll;
+}
+
+td {
+	padding: 0 0 5px 10px;
+}
+
+.profile_pic {
+	vertical-align:text-top
+}
+
+.name {
+	color: #CC6633;
+}
+
+.message {
+	
+}
+
+.time {
+	color: #666666;
+	font-size: x-small;
+}
+
+.poster {
+	font-size: large;
+}
+
+.commenter {
+	
 }
