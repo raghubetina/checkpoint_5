@@ -1,7 +1,7 @@
 <%= image_tag 'logo.png' %>
 <p>Howdy.</p>
 <ul>
-<% @posts.each do |post| %>
+<% @posts_with_videos.each do |post| %>
 	<li><%= post["from"]["name"] %> said "<%= post["message"] %>" <%= time_ago_in_words(post["created_time"]) %> ago.</li>
 <% end %>
 </ul>
